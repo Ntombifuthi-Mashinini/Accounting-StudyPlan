@@ -264,43 +264,117 @@
   <button onclick="calculateIncomeStatement()">Calculate Income Statement</button>
 </div>
 
-      <h3>Balance Sheet</h3>
-      <table>
-        <tr>
-          <th>Item</th>
-          <th>Amount (R)</th>
-        </tr>
-        <tr>
-          <td>Current Assets</td>
-          <td><input type="number" id="currentAssets" placeholder="Enter current assets"></td>
-        </tr>
-        <tr>
-          <td>Non-Current Assets</td>
-          <td><input type="number" id="nonCurrentAssets" placeholder="Enter non-current assets"></td>
-        </tr>
-        <tr>
-          <td>Current Liabilities</td>
-          <td><input type="number" id="currentLiabilities" placeholder="Enter current liabilities"></td>
-        </tr>
-        <tr>
-          <td>Non-Current Liabilities</td>
-          <td><input type="number" id="nonCurrentLiabilities" placeholder="Enter non-current liabilities"></td>
-        </tr>
-        <tr>
-          <td><strong>Total Assets</strong></td>
-          <td id="totalAssets">0</td>
-        </tr>
-        <tr>
-          <td><strong>Total Liabilities</strong></td>
-          <td id="totalLiabilities">0</td>
-        </tr>
-        <tr>
-          <td><strong>Equity</strong></td>
-          <td id="equity">0</td>
-        </tr>
-      </table>
-      <button onclick="calculateBalanceSheet()">Calculate Balance Sheet</button>
-    </div>
+<div class="section">
+  <h3>Balance Sheet</h3>
+  <table>
+    <tr>
+      <th colspan="2">Assets</th>
+    </tr>
+    <tr>
+      <td>Property, Plant, and Equipment (PPE)</td>
+      <td id="totalPPE">0</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="number" id="landBuildings" placeholder="Land and Buildings">
+        <input type="number" id="vehicles" placeholder="Vehicles">
+        <input type="number" id="equipment" placeholder="Equipment">
+        <input type="number" id="depreciation" placeholder="Accumulated Depreciation">
+      </td>
+    </tr>
+    <tr>
+      <td>Investments</td>
+      <td id="totalInvestments">0</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="number" id="fixedDeposit" placeholder="Fixed Deposits">
+        <input type="number" id="otherInvestments" placeholder="Other Investments">
+      </td>
+    </tr>
+    <tr>
+      <td>Inventory</td>
+      <td id="totalInventory">0</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="number" id="tradingStock" placeholder="Trading Stock">
+        <input type="number" id="consumableStores" placeholder="Consumable Stores">
+      </td>
+    </tr>
+    <tr>
+      <td>Trade and Other Receivables</td>
+      <td id="totalReceivables">0</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="number" id="tradeDebtors" placeholder="Trade Debtors">
+        <input type="number" id="provisionBadDebts" placeholder="Provision for Bad Debts">
+        <input type="number" id="prepaidExpenses" placeholder="Prepaid Expenses">
+        <input type="number" id="accruedIncome" placeholder="Accrued Income">
+      </td>
+    </tr>
+    <tr>
+      <td>Cash and Cash Equivalents</td>
+      <td id="totalCash">0</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="number" id="bank" placeholder="Bank">
+        <input type="number" id="pettyCash" placeholder="Petty Cash">
+        <input type="number" id="cashFloat" placeholder="Cash Float">
+        <input type="number" id="shortTermDeposit" placeholder="Short-term Deposits">
+      </td>
+    </tr>
+    <tr class="totals">
+      <td><strong>Total Assets</strong></td>
+      <td id="totalAssets">0</td>
+    </tr>
+
+    <tr>
+      <th colspan="2">Liabilities and Equity</th>
+    </tr>
+    <tr>
+      <td>Trade and Other Payables</td>
+      <td id="totalPayables">0</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="number" id="tradeCreditors" placeholder="Trade Creditors">
+        <input type="number" id="accruedExpenses" placeholder="Accrued Expenses">
+        <input type="number" id="incomeAdvance" placeholder="Income Received in Advance">
+      </td>
+    </tr>
+    <tr>
+      <td>Long-term Liabilities</td>
+      <td id="totalLiabilities">0</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="number" id="mortgageBond" placeholder="Mortgage Bond">
+        <input type="number" id="loan" placeholder="Loan">
+      </td>
+    </tr>
+    <tr>
+      <td>Owner's Equity</td>
+      <td id="totalEquity">0</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="number" id="openingCapital" placeholder="Opening Capital">
+        <input type="number" id="additionalCapital" placeholder="Additional Capital">
+        <input type="number" id="netProfit" placeholder="Net Profit">
+        <input type="number" id="drawings" placeholder="Drawings">
+      </td>
+    </tr>
+    <tr class="totals">
+      <td><strong>Total Liabilities and Equity</strong></td>
+      <td id="totalEquityLiabilities">0</td>
+    </tr>
+  </table>
+  <p id="balanceMessage"></p>
+  <button onclick="calculateAll()">Calculate Balance Sheet</button>
+</div>
 
     <div class="section">
       <h2>Cash Payments Journal (CPJ)</h2>

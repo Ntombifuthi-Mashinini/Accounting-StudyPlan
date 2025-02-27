@@ -17,15 +17,55 @@ function saveAnswers() {
   }
   
   function calculateIncomeStatement() {
-    const revenue = parseFloat(document.getElementById('revenue').value) || 0;
-    const costOfSales = parseFloat(document.getElementById('costOfSales').value) || 0;
-    const operatingExpenses = parseFloat(document.getElementById('operatingExpenses').value) || 0;
-    const financeCosts = parseFloat(document.getElementById('financeCosts').value) || 0;
+    const inputs = {
+      salesRevenue: parseFloat(document.getElementById('salesRevenue').value) || 0,
+      otherRevenue: parseFloat(document.getElementById('otherRevenue').value) || 0,
+      openingInventory: parseFloat(document.getElementById('openingInventory').value) || 0,
+      purchases: parseFloat(document.getElementById('purchases').value) || 0,
+      closingInventory: parseFloat(document.getElementById('closingInventory').value) || 0,
+      rent: parseFloat(document.getElementById('rent').value) || 0,
+      wages: parseFloat(document.getElementById('wages').value) || 0,
+      utilities: parseFloat(document.getElementById('utilities').value) || 0,
+      depreciation: parseFloat(document.getElementById('depreciation').value) || 0,
+      otherOperatingExpenses: parseFloat(document.getElementById('otherOperatingExpenses').value) || 0,
+      interestIncome: parseFloat(document.getElementById('interestIncome').value) || 0,
+      interestExpense: parseFloat(document.getElementById('interestExpense').value) || 0,
+      otherIncome: parseFloat(document.getElementById('otherIncome').value) || 0,
+      otherExpenses: parseFloat(document.getElementById('otherExpenses').value) || 0,
+      taxesPaid: parseFloat(document.getElementById('taxesPaid').value) || 0,
+    };
   
-    const grossProfit = revenue - costOfSales;
-    const netProfit = grossProfit - operatingExpenses - financeCosts;
+    const totalRevenue = inputs.salesRevenue + inputs.otherRevenue;
+    document.getElementById('totalRevenue').textContent = totalRevenue.toFixed(2);
   
+    const totalCOGS = inputs.openingInventory + inputs.purchases - inputs.closingInventory;
+    document.getElementById('totalCOGS').textContent = totalCOGS.toFixed(2);
+
+    const grossProfit = totalRevenue - totalCOGS;
     document.getElementById('grossProfit').textContent = grossProfit.toFixed(2);
+  
+    const totalOperatingExpenses =
+      inputs.rent +
+      inputs.wages +
+      inputs.utilities +
+      inputs.depreciation +
+      inputs.otherOperatingExpenses;
+    document.getElementById('totalOperatingExpenses').textContent = totalOperatingExpenses.toFixed(2);
+  
+    const operatingProfit = grossProfit - totalOperatingExpenses;
+    document.getElementById('operatingProfit').textContent = operatingProfit.toFixed(2);
+
+    const netOtherIncomeExpenses =
+      inputs.interestIncome -
+      inputs.interestExpense +
+      inputs.otherIncome -
+      inputs.otherExpenses;
+    document.getElementById('netOtherIncomeExpenses').textContent = netOtherIncomeExpenses.toFixed(2);
+  
+    const profitBeforeTax = operatingProfit + netOtherIncomeExpenses;
+    document.getElementById('profitBeforeTax').textContent = profitBeforeTax.toFixed(2);
+  
+    const netProfit = profitBeforeTax - inputs.taxesPaid;
     document.getElementById('netProfit').textContent = netProfit.toFixed(2);
   }
   
