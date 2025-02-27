@@ -130,42 +130,139 @@
         </tr>
       </table>
     </div>
+<div class="section">
+  <h2>Income Statement</h2>
+  <table>
+    <tr>
+      <th colspan="2">Revenue</th>
+    </tr>
+    <tr>
+      <td>Sales Revenue</td>
+      <td><input type="number" id="salesRevenue" placeholder="Enter sales revenue"></td>
+    </tr>
+    <tr>
+      <td>Other Revenue</td>
+      <td><input type="number" id="otherRevenue" placeholder="Enter other revenue"></td>
+    </tr>
+    <tr class="totals">
+      <td><strong>Total Revenue</strong></td>
+      <td id="totalRevenue">0</td>
+    </tr>
 
-    <div class="section">
-      <h2>Financial Statements</h2>
+    <tr>
+      <th colspan="2">Cost of Goods Sold (COGS)</th>
+    </tr>
+    <tr>
+      <td>Opening Inventory</td>
+      <td><input type="number" id="openingInventory" placeholder="Enter opening inventory"></td>
+    </tr>
+    <tr>
+      <td>Purchases</td>
+      <td><input type="number" id="purchases" placeholder="Enter purchases"></td>
+    </tr>
+    <tr>
+      <td>Closing Inventory</td>
+      <td><input type="number" id="closingInventory" placeholder="Enter closing inventory"></td>
+    </tr>
+    <tr class="totals">
+      <td><strong>Total COGS</strong></td>
+      <td id="totalCOGS">0</td>
+    </tr>
 
-      <h3>Income Statement</h3>
-      <table>
-        <tr>
-          <th>Item</th>
-          <th>Amount (R)</th>
-        </tr>
-        <tr>
-          <td>Revenue</td>
-          <td><input type="number" id="revenue" placeholder="Enter revenue"></td>
-        </tr>
-        <tr>
-          <td>Cost of Sales</td>
-          <td><input type="number" id="costOfSales" placeholder="Enter cost of sales"></td>
-        </tr>
-        <tr>
-          <td>Operating Expenses</td>
-          <td><input type="number" id="operatingExpenses" placeholder="Enter operating expenses"></td>
-        </tr>
-        <tr>
-          <td>Finance Costs</td>
-          <td><input type="number" id="financeCosts" placeholder="Enter finance costs"></td>
-        </tr>
-        <tr>
-          <td><strong>Gross Profit</strong></td>
-          <td id="grossProfit">0</td>
-        </tr>
-        <tr>
-          <td><strong>Net Profit</strong></td>
-          <td id="netProfit">0</td>
-        </tr>
-      </table>
-      <button onclick="calculateIncomeStatement()">Calculate Income Statement</button>
+    <tr>
+      <th colspan="2">Gross Profit</th>
+    </tr>
+    <tr class="totals">
+      <td><strong>Gross Profit</strong></td>
+      <td id="grossProfit">0</td>
+    </tr>
+
+    <tr>
+      <th colspan="2">Operating Expenses</th>
+    </tr>
+    <tr>
+      <td>Rent</td>
+      <td><input type="number" id="rent" placeholder="Enter rent"></td>
+    </tr>
+    <tr>
+      <td>Wages</td>
+      <td><input type="number" id="wages" placeholder="Enter wages"></td>
+    </tr>
+    <tr>
+      <td>Utilities</td>
+      <td><input type="number" id="utilities" placeholder="Enter utilities"></td>
+    </tr>
+    <tr>
+      <td>Depreciation</td>
+      <td><input type="number" id="depreciation" placeholder="Enter depreciation"></td>
+    </tr>
+    <tr>
+      <td>Other Operating Expenses</td>
+      <td><input type="number" id="otherOperatingExpenses" placeholder="Enter other expenses"></td>
+    </tr>
+    <tr class="totals">
+      <td><strong>Total Operating Expenses</strong></td>
+      <td id="totalOperatingExpenses">0</td>
+    </tr>
+
+    <tr>
+      <th colspan="2">Operating Profit</th>
+    </tr>
+    <tr class="totals">
+      <td><strong>Operating Profit</strong></td>
+      <td id="operatingProfit">0</td>
+    </tr>
+
+    <tr>
+      <th colspan="2">Other Income and Expenses</th>
+    </tr>
+    <tr>
+      <td>Interest Income</td>
+      <td><input type="number" id="interestIncome" placeholder="Enter interest income"></td>
+    </tr>
+    <tr>
+      <td>Interest Expense</td>
+      <td><input type="number" id="interestExpense" placeholder="Enter interest expense"></td>
+    </tr>
+    <tr>
+      <td>Other Income</td>
+      <td><input type="number" id="otherIncome" placeholder="Enter other income"></td>
+    </tr>
+    <tr>
+      <td>Other Expenses</td>
+      <td><input type="number" id="otherExpenses" placeholder="Enter other expenses"></td>
+    </tr>
+    <tr class="totals">
+      <td><strong>Net Other Income/Expenses</strong></td>
+      <td id="netOtherIncomeExpenses">0</td>
+    </tr>
+
+    <tr>
+      <th colspan="2">Profit Before Tax</th>
+    </tr>
+    <tr class="totals">
+      <td><strong>Profit Before Tax</strong></td>
+      <td id="profitBeforeTax">0</td>
+    </tr>
+
+    <tr>
+      <th colspan="2">Taxes</th>
+    </tr>
+    <tr>
+      <td>Taxes Paid</td>
+      <td><input type="number" id="taxesPaid" placeholder="Enter taxes"></td>
+    </tr>
+
+    <tr>
+      <th colspan="2">Net Profit</th>
+    </tr>
+    <tr class="totals">
+      <td><strong>Net Profit</strong></td>
+      <td id="netProfit">0</td>
+    </tr>
+  </table>
+  <button onclick="calculateIncomeStatement()">Calculate Income Statement</button>
+</div>
 
       <h3>Balance Sheet</h3>
       <table>
