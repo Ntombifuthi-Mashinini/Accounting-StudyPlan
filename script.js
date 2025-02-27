@@ -69,19 +69,114 @@ function saveAnswers() {
     document.getElementById('netProfit').textContent = netProfit.toFixed(2);
   }
   
-  function calculateBalanceSheet() {
-    const currentAssets = parseFloat(document.getElementById('currentAssets').value) || 0;
-    const nonCurrentAssets = parseFloat(document.getElementById('nonCurrentAssets').value) || 0;
-    const currentLiabilities = parseFloat(document.getElementById('currentLiabilities').value) || 0;
-    const nonCurrentLiabilities = parseFloat(document.getElementById('nonCurrentLiabilities').value) || 0;
+function calculatePPE() {
+    const landBuildings = parseFloat(document.getElementById('landBuildings').value) || 0;
+    const vehicles = parseFloat(document.getElementById('vehicles').value) || 0;
+    const equipment = parseFloat(document.getElementById('equipment').value) || 0;
+    const depreciation = parseFloat(document.getElementById('depreciation').value) || 0;
   
-    const totalAssets = currentAssets + nonCurrentAssets;
-    const totalLiabilities = currentLiabilities + nonCurrentLiabilities;
-    const equity = totalAssets - totalLiabilities;
+    const totalPPE = (landBuildings + vehicles + equipment) - depreciation;
+    document.getElementById('totalPPE').textContent = totalPPE.toFixed(2);
+  }
   
-    document.getElementById('totalAssets').textContent = totalAssets.toFixed(2);
+  function calculateInvestments() {
+    const fixedDeposit = parseFloat(document.getElementById('fixedDeposit').value) || 0;
+    const otherInvestments = parseFloat(document.getElementById('otherInvestments').value) || 0;
+  
+    const totalInvestments = fixedDeposit + otherInvestments;
+    document.getElementById('totalInvestments').textContent = totalInvestments.toFixed(2);
+  }
+  
+  function calculateInventory() {
+    const tradingStock = parseFloat(document.getElementById('tradingStock').value) || 0;
+    const consumableStores = parseFloat(document.getElementById('consumableStores').value) || 0;
+  
+    const totalInventory = tradingStock + consumableStores;
+    document.getElementById('totalInventory').textContent = totalInventory.toFixed(2);
+  }
+  
+  function calculateReceivables() {
+    const tradeDebtors = parseFloat(document.getElementById('tradeDebtors').value) || 0;
+    const provisionBadDebts = parseFloat(document.getElementById('provisionBadDebts').value) || 0;
+    const prepaidExpenses = parseFloat(document.getElementById('prepaidExpenses').value) || 0;
+    const accruedIncome = parseFloat(document.getElementById('accruedIncome').value) || 0;
+  
+    const netTradeDebtors = tradeDebtors - provisionBadDebts;
+    const totalReceivables = netTradeDebtors + prepaidExpenses + accruedIncome;
+    document.getElementById('totalReceivables').textContent = totalReceivables.toFixed(2);
+  }
+  
+  function calculateCash() {
+    const bank = parseFloat(document.getElementById('bank').value) || 0;
+    const pettyCash = parseFloat(document.getElementById('pettyCash').value) || 0;
+    const cashFloat = parseFloat(document.getElementById('cashFloat').value) || 0;
+    const shortTermDeposit = parseFloat(document.getElementById('shortTermDeposit').value) || 0;
+  
+    const totalCash = bank + pettyCash + cashFloat + shortTermDeposit;
+    document.getElementById('totalCash').textContent = totalCash.toFixed(2);
+  }
+  
+  function calculatePayables() {
+    const tradeCreditors = parseFloat(document.getElementById('tradeCreditors').value) || 0;
+    const accruedExpenses = parseFloat(document.getElementById('accruedExpenses').value) || 0;
+    const incomeAdvance = parseFloat(document.getElementById('incomeAdvance').value) || 0;
+  
+    const totalPayables = tradeCreditors + accruedExpenses + incomeAdvance;
+    document.getElementById('totalPayables').textContent = totalPayables.toFixed(2);
+  }
+  
+  function calculateLiabilities() {
+    const mortgageBond = parseFloat(document.getElementById('mortgageBond').value) || 0;
+    const loan = parseFloat(document.getElementById('loan').value) || 0;
+  
+    const totalLiabilities = mortgageBond + loan;
     document.getElementById('totalLiabilities').textContent = totalLiabilities.toFixed(2);
-    document.getElementById('equity').textContent = equity.toFixed(2);
+  }
+  
+  function calculateEquity() {
+    const openingCapital = parseFloat(document.getElementById('openingCapital').value) || 0;
+    const additionalCapital = parseFloat(document.getElementById('additionalCapital').value) || 0;
+    const netProfit = parseFloat(document.getElementById('netProfit').value) || 0;
+    const drawings = parseFloat(document.getElementById('drawings').value) || 0;
+  
+    const totalEquity = (openingCapital + additionalCapital + netProfit) - drawings;
+    document.getElementById('totalEquity').textContent = totalEquity.toFixed(2);
+  }
+  
+  function calculateBalanceSheet() {
+    const totalPPE = parseFloat(document.getElementById('totalPPE').textContent) || 0;
+    const totalInvestments = parseFloat(document.getElementById('totalInvestments').textContent) || 0;
+    const totalInventory = parseFloat(document.getElementById('totalInventory').textContent) || 0;
+    const totalReceivables = parseFloat(document.getElementById('totalReceivables').textContent) || 0;
+    const totalCash = parseFloat(document.getElementById('totalCash').textContent) || 0;
+  
+    const totalPayables = parseFloat(document.getElementById('totalPayables').textContent) || 0;
+    const totalLiabilities = parseFloat(document.getElementById('totalLiabilities').textContent) || 0;
+    const totalEquity = parseFloat(document.getElementById('totalEquity').textContent) || 0;
+  
+    const totalAssets = totalPPE + totalInvestments + totalInventory + totalReceivables + totalCash;
+    document.getElementById('totalAssets').textContent = totalAssets.toFixed(2);
+  
+    const totalEquityLiabilities = totalEquity + totalLiabilities + totalPayables;
+    document.getElementById('totalEquityLiabilities').textContent = totalEquityLiabilities.toFixed(2);
+  
+    if (totalAssets === totalEquityLiabilities) {
+      document.getElementById('balanceMessage').textContent = "✅ Balance Sheet Balances!";
+    } else {
+      document.getElementById('balanceMessage').textContent = "⚠️ Balance Sheet Does NOT Balance!";
+    }
+  }
+  
+  function calculateAll() {
+    calculatePPE();
+    calculateInvestments();
+    calculateInventory();
+    calculateReceivables();
+    calculateCash();
+    calculatePayables();
+    calculateLiabilities();
+    calculateEquity();
+    calculateBalanceSheet();
   }
   
   function calculateCPJ() {
