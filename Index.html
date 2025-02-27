@@ -1,14 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade 12 Accounting Study-Plan</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounting Study Master Plan</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Grade 12 Accounting Study-Plan</h1>
+  <div class="container">
+    <h1>Accounting Study Master Plan</h1>
+
+    <div class="section instructions">
+      <h2>Instructions</h2>
+      <p>
+        Welcome to the Accounting Study Master Plan! Use the tools below to practice preparing financial statements and journals. Follow these steps:
+      </p>
+      <ol>
+        <li><strong>Trial Balance</strong>: Review the provided Trial Balance to understand the accounts and their balances.</li>
+        <li><strong>Financial Statements</strong>: Use the Trial Balance to complete the Income Statement and Balance Sheet.</li>
+        <li><strong>Journals</strong>: Record transactions in the Cash Payments Journal (CPJ) and Cash Receipts Journal (CRJ).</li>
+        <li><strong>General Ledger</strong>: Post transactions to the General Ledger and ensure it balances.</li>
+        <li><strong>Question Bank</strong>: Answer the provided questions to test your understanding.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>Trial Balance</h2>
+      <table>
+        <tr>
+          <th>Account</th>
+          <th>Debit (R)</th>
+          <th>Credit (R)</th>
+        </tr>
+
+        <tr>
+          <td>Sales Revenue</td>
+          <td></td>
+          <td>500,000</td>
+        </tr>
+        <tr>
+          <td>Interest Income</td>
+          <td></td>
+          <td>10,000</td>
+        </tr>
+
+        <tr>
+          <td>Cost of Sales</td>
+          <td>300,000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Salaries and Wages</td>
+          <td>80,000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Rent Expense</td>
+          <td>20,000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Utilities Expense</td>
+          <td>10,000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Depreciation Expense</td>
+          <td>15,000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Interest Expense</td>
+          <td>5,000</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>Cash</td>
+          <td>50,000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Accounts Receivable</td>
+          <td>40,000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Inventory</td>
+          <td>60,000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Prepaid Expenses</td>
+          <td>5,000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Property, Plant, and Equipment</td>
+          <td>200,000</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>Accounts Payable</td>
+          <td></td>
+          <td>30,000</td>
+        </tr>
+        <tr>
+          <td>Loans Payable</td>
+          <td></td>
+          <td>100,000</td>
+        </tr>
+
+        <tr>
+          <td>Share Capital</td>
+          <td></td>
+          <td>150,000</td>
+        </tr>
+        <tr>
+          <td>Retained Earnings</td>
+          <td></td>
+          <td>50,000</td>
+        </tr>
+
+        <tr class="totals">
+          <td><strong>Totals</strong></td>
+          <td><strong>785,000</strong></td>
+          <td><strong>785,000</strong></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Financial Statements</h2>
+
+      <h3>Income Statement</h3>
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Amount (R)</th>
+        </tr>
+        <tr>
+          <td>Revenue</td>
+          <td><input type="number" id="revenue" placeholder="Enter revenue"></td>
+        </tr>
+        <tr>
+          <td>Cost of Sales</td>
+          <td><input type="number" id="costOfSales" placeholder="Enter cost of sales"></td>
+        </tr>
+        <tr>
+          <td>Operating Expenses</td>
+          <td><input type="number" id="operatingExpenses" placeholder="Enter operating expenses"></td>
+        </tr>
+        <tr>
+          <td>Finance Costs</td>
+          <td><input type="number" id="financeCosts" placeholder="Enter finance costs"></td>
+        </tr>
+        <tr>
+          <td><strong>Gross Profit</strong></td>
+          <td id="grossProfit">0</td>
+        </tr>
+        <tr>
+          <td><strong>Net Profit</strong></td>
+          <td id="netProfit">0</td>
+        </tr>
+      </table>
+      <button onclick="calculateIncomeStatement()">Calculate Income Statement</button>
+
+      <h3>Balance Sheet</h3>
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Amount (R)</th>
+        </tr>
+        <tr>
+          <td>Current Assets</td>
+          <td><input type="number" id="currentAssets" placeholder="Enter current assets"></td>
+        </tr>
+        <tr>
+          <td>Non-Current Assets</td>
+          <td><input type="number" id="nonCurrentAssets" placeholder="Enter non-current assets"></td>
+        </tr>
+        <tr>
+          <td>Current Liabilities</td>
+          <td><input type="number" id="currentLiabilities" placeholder="Enter current liabilities"></td>
+        </tr>
+        <tr>
+          <td>Non-Current Liabilities</td>
+          <td><input type="number" id="nonCurrentLiabilities" placeholder="Enter non-current liabilities"></td>
+        </tr>
+        <tr>
+          <td><strong>Total Assets</strong></td>
+          <td id="totalAssets">0</td>
+        </tr>
+        <tr>
+          <td><strong>Total Liabilities</strong></td>
+          <td id="totalLiabilities">0</td>
+        </tr>
+        <tr>
+          <td><strong>Equity</strong></td>
+          <td id="equity">0</td>
+        </tr>
+      </table>
+      <button onclick="calculateBalanceSheet()">Calculate Balance Sheet</button>
+    </div>
+
+    <div class="section">
+      <h2>Cash Payments Journal (CPJ)</h2>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount (R)</th>
+        </tr>
+        <tr>
+          <td><input type="text" id="cpjDate1" placeholder="YYYY-MM-DD"></td>
+          <td><input type="text" id="cpjDesc1" placeholder="Enter description"></td>
+          <td><input type="number" id="cpjAmount1" placeholder="Enter amount"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="cpjDate2" placeholder="YYYY-MM-DD"></td>
+          <td><input type="text" id="cpjDesc2" placeholder="Enter description"></td>
+          <td><input type="number" id="cpjAmount2" placeholder="Enter amount"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="cpjDate3" placeholder="YYYY-MM-DD"></td>
+          <td><input type="text" id="cpjDesc3" placeholder="Enter description"></td>
+          <td><input type="number" id="cpjAmount3" placeholder="Enter amount"></td>
+        </tr>
+        <tr class="totals">
+          <td colspan="2"><strong>Total Payments</strong></td>
+          <td id="totalPayments">0</td>
+        </tr>
+      </table>
+      <button onclick="calculateCPJ()">Calculate CPJ</button>
+    </div>
+
+    <div class="section">
+      <h2>Cash Receipts Journal (CRJ)</h2>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount (R)</th>
+        </tr>
+        <tr>
+          <td><input type="text" id="crjDate1" placeholder="YYYY-MM-DD"></td>
+          <td><input type="text" id="crjDesc1" placeholder="Enter description"></td>
+          <td><input type="number" id="crjAmount1" placeholder="Enter amount"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="crjDate2" placeholder="YYYY-MM-DD"></td>
+          <td><input type="text" id="crjDesc2" placeholder="Enter description"></td>
+          <td><input type="number" id="crjAmount2" placeholder="Enter amount"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="crjDate3" placeholder="YYYY-MM-DD"></td>
+          <td><input type="text" id="crjDesc3" placeholder="Enter description"></td>
+          <td><input type="number" id="crjAmount3" placeholder="Enter amount"></td>
+        </tr>
+        <tr class="totals">
+          <td colspan="2"><strong>Total Receipts</strong></td>
+          <td id="totalReceipts">0</td>
+        </tr>
+      </table>
+      <button onclick="calculateCRJ()">Calculate CRJ</button>
+    </div>
+
+    <div class="section">
+      <h2>General Ledger</h2>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Account</th>
+          <th>Debit (R)</th>
+          <th>Credit (R)</th>
+        </tr>
+        <tr>
+          <td><input type="text" id="glDate1" placeholder="YYYY-MM-DD"></td>
+          <td><input type="text" id="glAccount1" placeholder="Enter account"></td>
+          <td><input type="number" id="glDebit1" placeholder="Enter debit"></td>
+          <td><input type="number" id="glCredit1" placeholder="Enter credit"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="glDate2" placeholder="YYYY-MM-DD"></td>
+          <td><input type="text" id="glAccount2" placeholder="Enter account"></td>
+          <td><input type="number" id="glDebit2" placeholder="Enter debit"></td>
+          <td><input type="number" id="glCredit2" placeholder="Enter credit"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="glDate3" placeholder="YYYY-MM-DD"></td>
+          <td><input type="text" id="glAccount3" placeholder="Enter account"></td>
+          <td><input type="number" id="glDebit3" placeholder="Enter debit"></td>
+          <td><input type="number" id="glCredit3" placeholder="Enter credit"></td>
+        </tr>
+      </table>
+      <button onclick="addTransaction()">Add Transaction</button>
+    </div>
     
-    <script src="script.js"></script>
+<div class="section">
+    <h2>Question Bank</h2>
+    <div class="question">
+      <p>1. What are the main components of a Statement of Financial Position?</p>
+      <textarea id="answer1" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>2. How do you calculate Working Capital?</p>
+      <textarea id="answer2" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>3. What do you mean by Ratio Analysis?</p>
+      <textarea id="answer3" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>4. What are the various types of ratios?</p>
+      <textarea id="answer4" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>5. What relationships will be established to study:
+        a. Inventory Turnover
+        b. Trade Receivables Turnover
+        c. Trade Payables Turnover
+        d. Working Capital Turnover</p>
+      <textarea id="answer5" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>6. The liquidity of a business firm is measured by its ability to satisfy its long-term obligations as they become due. What are the ratios used for this purpose?</p>
+      <textarea id="answer6" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>7. The average age of inventory is viewed as the average length of time inventory is held by the firm or as the average number of day’s sales in inventory. Why?</p>
+      <textarea id="answer7" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>8. What are liquidity ratios? Discuss the importance of current and liquid ratio.</p>
+      <textarea id="answer8" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>9. How would you study the solvency position of the firm?</p>
+      <textarea id="answer9" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>10. What are important profitability ratios? How are these worked out?</p>
+      <textarea id="answer10" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>11. The current ratio provides a better measure of overall liquidity only when a firm’s inventory cannot easily be converted into cash. If inventory is liquid, the quick ratio is a preferred measure of overall liquidity. Explain.</p>
+      <textarea id="answer11" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>12. Following is the Balance Sheet of Raj Oil Mills Limited as at March 31, 2016. Calculate Current Ratio.</p>
+      <textarea id="answer12" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>13. Following is the Balance Sheet of Title Machine Ltd. as at March 31, 2017. Calculate Current Ratio and Liquid Ratio.</p>
+      <textarea id="answer13" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>14. Current Ratio is 3.5:1. Working Capital is Rs 90,000. Calculate the amount of Current Assets and Current Liabilities.</p>
+      <textarea id="answer14" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>15. Shine Limited has a current ratio 4.5:1 and quick ratio 3:1; if the inventory is 36,000, calculate current liabilities and current assets.</p>
+      <textarea id="answer15" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>16. Current liabilities of a company are Rs 75,000. If current ratio is 4:1 and liquid ratio is 1:1, calculate value of current assets, liquid assets and inventory.</p>
+      <textarea id="answer16" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>17. Handa Ltd.has inventory of Rs 20,000. Total liquid assets are Rs 1,00,000 and quick ratio is 2:1. Calculate current ratio.</p>
+      <textarea id="answer17" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>18. Calculate debt equity ratio from the following information:
+        Rs
+        Total Assets 15,00,000
+        Current Liabilities 6,00,000
+        Total Debts 12,00,000</p>
+      <textarea id="answer18" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>19. Calculate Current Ratio if:
+        Inventory is Rs 6,00,000; Liquid Assets Rs 24,00,000; Quick Ratio 2:1.</p>
+      <textarea id="answer19" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>20. Compute Stock Turnover Ratio from the following information:
+        Rs
+        Net Revenue from Operations 2,00,000
+        Gross Profit 50,000
+        Inventory at the end 60,000
+        Excess of inventory at the end over inventory in the beginning 20,000</p>
+      <textarea id="answer20" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>21. Calculate following ratios from the following information:
+        (i) Current ratio (ii) Acid test ratio (iii) Operating Ratio (iv) Gross Profit Ratio
+        Rs
+        Current Assets 35,000
+        Current Liabilities 17,500
+        Inventory 15,000
+        Operating Expenses 20,000
+        Revenue from Operations 60,000
+        Cost of Goods Sold 30,000</p>
+      <textarea id="answer21" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>22. From the following information calculate:
+        (i) Gross Profit Ratio (ii) Inventory Turnover Ratio (iii) Current Ratio (iv) Liquid Ratio (v) Net Profit Ratio (vi) Working capital Ratio:
+        Rs
+        Revenue from Operations 25,20,000
+        Net Profit 3,60,000
+        Cast of Revenue from Operations 19,20,000
+        Long-term Debts 9,00,000
+        Trade Payables 2,00,000
+        Average Inventory 8,00,000
+        Current Assets 7,60,000
+        Fixed Assets 14,40,000
+        Current Liabilities 6,00,000
+        Net Profit before Interest and Tax 8,00,000</p>
+      <textarea id="answer22" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>23. Compute Gross Profit Ratio, Working Capital Turnover Ratio, Debt Equity Ratio and Proprietary Ratio from the following information:
+        Rs
+        Paid-up Share Capital 5,00,000
+        Current Assets 4,00,000
+        Revenue from Operations 10,00,000
+        13% Debentures 2,00,000
+        Current Liabilities 2,80,000
+        Cost of Revenue from Operations 6,00,000</p>
+      <textarea id="answer23" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>24. Calculate Inventory Turnover Ratio if:
+        Inventory in the beginning is Rs 76,250, Inventory at the end is 98,500, Gross Revenue from Operations is Rs 5,20,000, Return Inwards is Rs 20,000, Purchases is Rs 3,22,250.</p>
+      <textarea id="answer24" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>25. Calculate Inventory Turnover Ratio from the data given below:
+        Rs
+        Inventory at the beginning of the year 10,000
+        Stock* at the end of the year 5,000
+        Carriage 2,500
+        Revenue from Operations 50,000
+        Purchases 25,000
+        *Since the very first item is Inventory in the beginning, so this item should be Inventory at the end.</p>
+      <textarea id="answer25" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>26. A trading firm’s average inventory is Rs 20,000 (cost). If the inventory turnover ratio is 8 times and the firm sells goods at a profit of 20% on sale, ascertain the profit of the firm.</p>
+      <textarea id="answer26" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>27. You are able to collect the following information about a company for two years:
+        2015-16 2016-17
+        Book Debts on Apr. 01 Rs 4,00,000 Rs 5,00,000
+        Book Debts on Mar. 31 Rs 5,60,000
+        Stock in trade on Mar. 31 Rs 6,00,000 Rs 9,00,000
+        Revenue from Operations (at gross profit of 25%) Rs 3,00,000 Rs 24,00,000
+        Calculate Inventory Turnover Ratio and Trade Receivables Turnover Ratio if in the year 2015-16 stock in trade increased by Rs 2,00,000.</p>
+      <textarea id="answer27" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>28. The following Balance Sheet and other information, calculate following ratios:
+        (i) Debt-Equity Ratio (ii) Working Capital Turnover Ratio (iii) Trade Receivables Turnover Ratio
+        Balance Sheet as at March 31, 2017
+        Particulars Note No. Rs.
+        I. Equity and Liabilities:
+        1. Shareholders’ funds
+        a) Share capital 10,00,000
+        b) Reserves and surplus 9,00,000
+        2. Non-current Liabilities
+        a) Long-term borrowings 12,00,000
+        3. Current Liabilities
+        a) Trade payables 5,00,000
+        Total 36,00,000
+        II. Assets
+        1. Non-current Assets
+        a) Fixed assets
+        Tangible assets 18,00,000
+        2. Current Assets
+        a) Inventories 4,00,000
+        b) Trade Receivables 9,00,000
+        c) Cash and cash equivalents 5,00,000
+        Total 36,00,000
+        Additional Information: Revenue from Operations Rs. 18,00,000 Calculate:
+        i) Debt-Equity Ratio
+        ii) Working Capital Turnover Ratio
+        iii) Trade Receivables Turnover Ratio
+        (Debt-Equity Ratio 0.63:1; Working Capital Turnover Ratio 1.39 times; Trade Receivables Turnover Ratio 2 times)</p>
+      <textarea id="answer28" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>29. From the following information, calculate the following ratios:
+        i) Quick Ratio
+        ii) Inventory Turnover Ratio
+        iii) Return on Investment
+        Rs.
+        Inventory in the beginning 50,000
+        Inventory at the end 60,000
+        Revenue from operations 4,00,000
+        Gross Profit 1,94,000
+        Cash and Cash Equivalents 40,000
+        Trade Receivables 1,00,000
+        Trade Payables 1,90,000
+        Other Current Liabilities 70,000
+        Share Capital 2,00,000
+        Reserves and Surplus 1,40,000
+        (Balance in the Statement of Profit & Loss A/c)</p>
+      <textarea id="answer29" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>30. From the following, calculate (a) Debt Equity Ratio (b) Total Assets to Debt Ratio (c) Proprietary Ratio.
+        Rs
+        Equity Share Capital 75,000
+        Preference Share Capital 25,000
+        General Reserve 45,000
+        Accumulated Profits 30,000
+        Debentures 75,000
+        Sundry Creditors 40,000
+        Outstanding Expenses 10,000</p>
+      <textarea id="answer30" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>31. Cost of Revenue from Operations is Rs 1,50,000. Operating expenses are Rs 60,000. Revenue from Operations is Rs 2,50,000. Calculate Operating Ratio.</p>
+      <textarea id="answer31" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>32. The following is the summerised transactions and Statement of Profit and Loss Account for the year ending March 31, 2007 and the Balance Sheet as on the basis of following information, calculate:
+        (i) Gross Profit Ratio (ii) Current Ratio (iii) Acid Test Ratio (iv) Inventory Turnover Ratio (v) Fixed Assets Turnover Ratio
+        Rs.
+        Gross Profit 50,000
+        Revenue from Operations 1,00,000
+        Inventory 15,000
+        Trade Receivables 27,500
+        Cash and Cash Equivalents 17,500
+        Current Liabilities 40,000
+        Land & Building 50,000
+        Plant & Machinery 30,000
+        Furniture 20,000</p>
+      <textarea id="answer32" placeholder="Type your answer here..."></textarea>
+    </div>
+    <div class="question">
+      <p>33. From the following information calculate Gross Profit Ratio, Inventory Turnover Ratio and Trade Receivables Turnover Ratio.
+        Rs
+        Revenue from Operations 3,00,000
+        Cost of Revenue from Operations 2,40,000
+        Inventory at the end 62,000
+        Gross Profit 60,000
+        Inventory in the beginning 58,000
+        Trade Receivables 32,000</p>
+      <textarea id="answer33" placeholder="Type your answer here..."></textarea>
+    </div>
+    <button onclick="saveAnswers()">Save Answers</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
